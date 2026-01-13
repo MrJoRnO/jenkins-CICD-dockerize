@@ -30,19 +30,12 @@ pipeline {
             }
         }
         
-//         stage('Deployment with Ansible') {
-//             steps {
-//                 script {
-//                     sh "ansible-playbook deploy-playbook.yml -e 'image_tag=${IMAGE_TAG} image_name=${DOCKER_HUB_USER}/${IMAGE_NAME}'"
-//                 }
-//             }
-//         }
-//     }
-    
-        // post {
-        //     always {
-        //         sh "docker logout"
-        //     }
-        // }
+        stage('Deployment with Ansible') {
+            steps {
+                script {
+                    sh 'ansible-playbook -i inventory.ini deploy-playbook.yml'
+                }
+            }
+        }
     }
 }

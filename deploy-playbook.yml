@@ -1,0 +1,22 @@
+- name: Deploy Dockerized Application
+  hosts: all
+  become: yes
+  tasks:
+    - name: Pull the latest image from DockerHub
+      docker_image:
+        name: " noamjorno/my-app"
+        source: pull
+        tag: latest
+
+    - name: Stop and remove existing container (if exists)
+      docker_container:
+        name: my-app-container
+        state: absent
+
+    - name: Run the new container
+      docker_container:
+        name: my-app-container
+        image: "noamjorno/my-app:latest"
+        state: started
+        ports:
+          - "80:80"
