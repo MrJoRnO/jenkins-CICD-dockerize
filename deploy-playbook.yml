@@ -1,6 +1,6 @@
 - name: Deploy Dockerized Application
   hosts: all
-  become: yes
+  become: no
   tasks:
     - name: Pull the latest image from DockerHub
       docker_image:
