@@ -16,7 +16,7 @@
     - name: Run the new container
       docker_container:
         name: my-app-container
-        image: "noamjorno/my-app:latest"
+        image: "noamjorno/myapp:latest"
         state: started
         ports:
           - "80:80"
