@@ -4,7 +4,7 @@
   tasks:
     - name: Pull the latest image from DockerHub
       docker_image:
-        name: "noamjorno/my-app"
+        name: "noamjorno/myapp"
         source: pull
         tag: latest
           
