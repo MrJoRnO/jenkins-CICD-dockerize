@@ -7,8 +7,8 @@
         name: "noamjorno/myapp"
         source: pull
         tag: latest
-          
-    - name: Stop and remove existing container (if exists)
+
+    - name: Stop and remove existing container
       docker_container:
         name: my-app-container
         state: absent
@@ -19,4 +19,4 @@
         image: "noamjorno/myapp:latest"
         state: started
         ports:
-          - "80:80"
+          - "80:5000"
