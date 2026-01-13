@@ -7,7 +7,10 @@
         name: "noamjorno/my-app"
         source: pull
         tag: latest
-
+        repository_credential:
+          username: "{{ docker_user }}"
+          password: "{{ docker_pass }}"
+          
     - name: Stop and remove existing container (if exists)
       docker_container:
         name: my-app-container
